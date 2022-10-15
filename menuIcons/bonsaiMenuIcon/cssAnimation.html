@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>https://www.hellobonsai.com/</title>
+
+    <link rel="stylesheet" href="./initials.css" />
+
+    <!-- CSS Animation -->
+    <link rel="stylesheet" href="./cssAnimation.css" />
+</head>
+
+<body>
+
+    <button class="btn menu-btn">
+        <span class="dash dash-top"></span>
+        <span class="dash dash-middle"></span>
+        <span class="dash dash-bottom"></span>
+    </button>
+
+    <!-- CSS Animation -->
+    <script>
+
+        const menuBtn = document.querySelector(".btn");
+        menuBtn.addEventListener("click", function (e) {
+            if (this.classList.contains("open")) {
+                this.classList.remove("open")
+                this.classList.add("closed")
+            } else {
+                this.classList.remove("closed")
+                this.classList.add("open")
+            }
+        })
+
+        menuBtn.addEventListener("animationstart", function (e) {
+            menuBtn.disabled = true;
+        })
+
+        menuBtn.addEventListener("animationend", function (e) {
+            menuBtn.disabled = false;
+        })
+
+    </script>
+
+</body>
+
+</html>

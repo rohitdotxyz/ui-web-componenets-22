@@ -1,0 +1,221 @@
+ body {
+    display: flex;
+    min-height: 100vh;
+}
+
+.menu-btn {
+    margin: auto;
+    display: block;
+    
+    /* bars height and width */
+    --bars-width: 16rem;
+    --height: calc(var(--bars-width) / 8);
+
+    /* bars gap */
+    --gapPlus: 100%;
+    --gapMinus: -100%;
+
+    /* menu button height and width */
+    width: var(--bars-width);
+    height: var(--bars-width);
+
+    
+    /* test */
+    /* outline: 1px solid; */
+
+    /* 
+        go with even numbers
+        --bars-height: 8rem
+        bars height should be 8 times of all below
+        --height: 1rem;
+        --heightMinus: -1rem;
+        --gapPlus: 1rem;
+        --gapMinus: -1rem;
+
+    8 ratio 1
+    8:1
+    */
+
+    /* titles */
+    position: relative;
+}
+
+.menu-btn::before  {
+    content: "CSS Animation";
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+.dash {
+    margin: auto;
+    display: block;
+    background-color: #4c4d5f;
+    width: var(--bars-width);
+    height: var(--height);
+    border-radius: var(--height);
+
+    /* 
+        1rem = 10px;
+        width and height calculations of button
+        height of 3 bars => 3 * height of bars
+        gap between bars = 2 * gap
+
+        for example 
+        height of 1 bar = 4px;
+        height of 3 bars = 3 * 4 => 12px
+        gap between bars = 2 * 4 =>  8
+        total = 20px height
+    */
+}
+
+/* initial state */
+.btn .dash-top {
+    transform: translateY(var(--gapMinus));
+}
+
+.btn .dash-middle {
+    transform: translateY(0px);
+}
+
+.btn .dash-bottom {
+    transform: translateY(var(--gapPlus));
+}
+
+/* closed state */
+.btn.closed .dash-top {
+    animation-name: dash-top-initial;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+}
+
+.btn.closed .dash-middle {
+    animation-name: dash-middle-initial;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+}
+
+.btn.closed .dash-bottom {
+    animation-name: dash-bottom-initial;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dash-top-initial {
+    0% {
+        transform-origin: center;
+        transform: translateY(var(--gapPlus)) rotateZ(45deg);
+    }
+
+    50% {
+        transform: translateY(var(--gapPlus));
+    }
+
+
+    100% {
+        transform: translateY(var(--gapMinus));
+    }
+}
+
+@keyframes dash-middle-initial {
+    0% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: transparent;
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes dash-bottom-initial {
+    0% {
+        transform-origin: center;
+        transform: translateY(var(--gapMinus)) rotateZ(-45deg);
+    }
+
+    50% {
+        transform: translateY(var(--gapMinus));
+    }
+
+
+    100% {
+        transform: translateY(var(--gapPlus));
+    }
+}
+
+.menu-btn:hover .dash {
+    background-color: #262626;
+}
+
+.btn.open .dash-top {
+    animation-name: dash-top-final;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+}
+
+.btn.open .dash-middle {
+    animation-name: dash-middle-final;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+
+}
+
+.btn.open .dash-bottom {
+    animation-name: dash-bottom-final;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dash-top-final {
+    0% {
+        transform: translateY(var(--gapMinus))
+    }
+
+    50% {
+        transform: translateY(var(--gapPlus));
+    }
+
+    100% {
+        transform-origin: center;
+        transform: translateY(var(--gapPlus)) rotateZ(45deg);
+    }
+}
+
+@keyframes dash-middle-final {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(0px)
+    }
+
+    100% {
+        background-color: transparent;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes dash-bottom-final {
+    0% {
+        transform: translateY(var(--gapPlus));
+    }
+
+    50% {
+        transform: translateY(var(--gapMinus));
+    }
+
+    100% {
+        transform-origin: center;
+        transform: translateY(var(--gapMinus)) rotateZ(-45deg);
+    }
+}

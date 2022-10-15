@@ -1,0 +1,74 @@
+ body {
+    display: flex;
+    min-height: 100vh;
+}
+
+.menu-btn {
+    margin: auto;
+    display: block;
+    
+    /* bars height and width */
+    --bars-width: 16rem;
+    --height: calc(var(--bars-width) / 8);
+
+    /* bars gap */
+    --gapPlus: 100%;
+    --gapMinus: -100%;
+
+    /* menu button height and width */
+    width: var(--bars-width);
+    height: var(--bars-width);
+    /* test */
+    /* outline: 1px solid; */
+    position: relative;
+}
+
+.menu-btn::before  {
+    content: "JS Animation";
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.dash {
+    margin: auto;
+    display: block;
+    background-color: #4c4d5f;
+    width: var(--bars-width);
+    height: var(--height);
+    border-radius: var(--height);
+
+    /* 
+        1rem = 10px;
+        width and height calculations of button
+        height of 3 bars => 3 * height of bars
+        gap between bars = 2 * gap
+
+        for example 
+        height of 1 bar = 4px;
+        height of 3 bars = 3 * 4 => 12px
+        gap between bars = 2 * 4 =>  8
+        total = 20px height
+    */
+}
+
+/* initial state */
+.btn .dash-top {
+    transform: translateY(var(--gapMinus));
+}
+
+.btn .dash-middle {
+    transform: translateY(0px);
+}
+
+.btn .dash-bottom {
+    transform: translateY(var(--gapPlus));
+}
+
+.menu-btn:hover .dash {
+    background-color: #262626;
+}
