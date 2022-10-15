@@ -1,0 +1,54 @@
+/* ============= initial settings ============= */
+*, *::before, *::after {
+    margin: 0; padding: 0;
+    border: 0 none transparent;
+    outline: 0 none transparent;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.75rem;
+    line-height: 2; 
+    width: 100%;
+    min-height: 100vh;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: transparent;
+}
+
+input, button, select {
+    appearance: none;
+}
+
+a, button, select {
+    cursor: pointer;
+}
+
+a, button, input, select, img, svg {
+    display: inline-block;
+    vertical-align: baseline;
+    color: inherit;
+    fill: inherit;
+    user-select: none;
+    line-height: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    white-space: inherit;
+    word-break: inherit;
+}
+
