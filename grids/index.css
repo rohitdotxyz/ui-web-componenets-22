@@ -1,0 +1,433 @@
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.container__topic {
+    display: block;
+    text-align: center;
+}
+
+/* floating */
+.float.services {
+    /* css config */
+
+    /* height and width */
+    --column-width: 50%;
+    --img-width: 5rem;
+    --img-height: 5rem;
+
+    /* font size and line height */
+    font-size: 0;
+    --font-service-heading: 1.75rem;
+    --lh-service-heading: 1;
+    --font-service-description: 1.5rem;
+    --lh-service-description: 2rem;
+    --font-service-link: 1.5rem;
+    --lh-service-link: 1;
+
+    /* spacing */
+    --margin: 4px;
+    --grid-gap: 0.5rem;
+    --service-padding: 1rem;
+    --space-between-image-and-content: calc(var(--img-width) + var(--service-padding));
+
+    /* iamge alignment */
+    /* top */
+    --image-position: 0%;
+    --vertical-align: calc(var(--image-position) + (var(--service-padding) + var(--margin)));
+
+    /* vertically center */
+    /* --image-position: 50%; */
+    /* --vertical-align: var(--image-position); */
+
+    /* bottom */
+    /* --image-position: 100%; */
+    /* --vertical-align: calc(var(--image-position) - (var(--service-padding) + var(--margin))); */
+
+    /* background colors */
+    background-color: #fff;
+    --bg-on-hover: rgb(255, 214, 137);
+
+    /* class styles */
+    padding: var(--grid-gap);
+    
+    /* test */
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.float .row {
+    overflow: hidden;
+}
+
+.float .row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.float .col {
+    /* with float */
+    float: left;
+    
+    /* with inline-block */
+    /* display: inline-block; */
+    /* vertical-align: top; */
+
+    width: var(--column-width);
+
+    /* test */
+    /* border: 1px solid #262626; */
+}
+
+.float .service {
+    margin: var(--grid-gap);
+    border: 1px solid #ccc;
+}
+
+.float .service__item {
+    padding: var(--service-padding);
+    position: relative;
+
+    /* test */
+    /* border: 1px solid #262626; */
+}
+
+.float .service__img {
+    /* 
+        img are square in size, 
+        so whatever width I set,
+        its height and width are same
+    */
+    width: var(--img-width);
+    height: var(--img-height);
+
+    float: left;
+    position: absolute;
+    top: var(--vertical-align);
+    transform: translateY(calc(-1 * var(--image-position)));
+}
+
+.float .service__content {
+    margin-left: var(--space-between-image-and-content);
+    overflow: auto;
+
+    /* test */
+    /* border: 1px solid; */
+}
+
+.float .service__heading {
+    font-size: var(--font-service-heading);
+    line-height: var(--lh-service-heading);
+    font-weight: normal;
+    margin: var(--margin) 0;
+}
+
+.float .service__description {
+    font-size: var(--font-service-description);
+    line-height: var(--lh-service-description);
+}
+
+.float .service__link {
+    font-size: var(--font-service-link);
+    line-height: var(--lh-service-link);
+    margin: var(--margin) 0;
+}
+
+/* hovering state */
+.float .service:hover {
+    background-color: var(--bg-on-hover);
+    border: 1px solid #262626;
+}
+
+.float .service__link:hover {
+    text-decoration: underline;
+}
+
+/* 1024px */
+@media (max-width: 64rem) {
+    html {
+        font-size: 50%;
+    }
+}
+
+/* 768px */
+@media (max-width: 48rem) {
+    .float .services {
+        --column-width: 100%
+    }
+}
+
+
+/* flexbox */
+.flexbox.services {
+    /* css config */
+ 
+    /* width and height */
+    --column-width: 50%;
+    --img-width: 5rem;
+    --img-height: 5rem;
+
+    /* font-size */
+    font-size: 0;
+    --font-service-heading: 1.75rem;
+    --lh-service-heading: 1;
+    --font-service-description: 1.5rem;
+    --lh-service-description: 2rem;
+    --font-service-link: 1.5rem;
+    --lh-service-link: 1;
+
+    /* spacing */
+    --margin: 4px;
+    --grid-gap: 0.5rem;
+    --service-padding: 1rem;
+    --space-between-img-and-content: var(--service-padding);
+
+    /* align */
+    --img-align-vertical: start;
+
+    /* background colors */
+    background-color: #fff;
+    --bg-on-hover: rgb(255, 214, 137);
+
+    /* class styles */
+    padding: var(--grid-gap);
+
+    /* test */
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.flexbox .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flexbox .col {
+    flex-grow: 1;
+    flex-basis: var(--column-width);
+    display: flex;
+    flex-direction: column;
+}
+
+.flexbox .service {
+    margin: var(--grid-gap);
+    border: 1px solid #ccc;
+
+    /* 
+        if we enable height
+        our columns become equal height
+    */
+    height: 100%;
+}
+
+.flexbox .service__item {
+    padding: var(--service-padding);
+    display: flex;
+    flex-direction: row;
+
+    /* test */
+    /* border: 1px solid; */
+}
+
+.flexbox .service__img {
+    /* 
+        iamges are square in size, 
+        so whatever width I set,
+        its height and width are same
+    */
+    width: var(--img-width);
+    height: var(--img-height);
+    align-self: var(--img-align-vertical);
+    margin: var(--margin) 0;
+}
+
+.flexbox .service__content {
+    flex-grow: 1;
+    margin-left: var(--space-between-img-and-content);
+
+    /* test */
+    /* border: 1px solid; */
+}
+
+.flexbox .service__heading {
+    font-size: var(--font-service-heading);
+    line-height: var(--lh-service-heading);
+    font-weight: normal;
+    margin: var(--margin) 0;
+}
+
+.flexbox .service__description {
+    font-size: var(--font-service-description);
+    line-height: var(--lh-service-description);
+}
+
+.flexbox .service__link {
+    font-size: var(--font-service-link);
+    line-height: var(--lh-service-link);
+    margin: var(--margin) 0;
+}
+
+/* hovering state */
+.flexbox .service:hover {
+    background-color: var(--bg-on-hover);
+    border: 1px solid #262626;
+}
+
+.flexbox .service__link:hover {
+    text-decoration: underline;
+}
+
+/* 1024px */
+@media (max-width: 64rem) {
+    html {
+        font-size: 50%;
+    }
+}
+
+/* 768px */
+@media (max-width: 48rem) {
+    .flexbox .services {
+        --column-width: 100%
+    }
+}
+
+
+/* Grids */
+.grids.services {
+    /* css config */
+ 
+    /* width and height */
+    --column-count: 2;
+    --column-width: 50%;
+    --img-width: 5rem;
+    --img-height: 5rem;
+
+    /* font-size */
+    font-size: 0;
+    --font-service-heading: 1.75rem;
+    --lh-service-heading: 1;
+    --font-service-description: 1.5rem;
+    --lh-service-description: 2rem;
+    --font-service-link: 1.5rem;
+    --lh-service-link: 1;
+
+    /* spacing */
+    --margin: 4px;
+    --grid-gap: 0.5rem;
+    --service-padding: 1rem;
+    --row-gap:var(--service-padding);
+    --column-gap:var(--service-padding);
+    --space-between-img-and-content: var(--service-padding);
+
+    /* align */
+    --img-align-vertical: start;
+
+        /* background colors */
+    background-color: #fff;
+    --bg-on-hover: #ffd689;
+
+    /* CSS Styles */
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(var(--column-count), var(--column-width));
+    padding: var(--grid-gap);
+
+    /* this pushed inner box right */
+    /* grid-row-gap: 1rem; */
+    /* grid-column-gap: 1rem; */
+
+    /* test */
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.grids .service {
+    margin: var(--grid-gap);
+    border: 1px solid #ccc;
+}
+
+.grids .service__item {
+    padding: var(--service-padding);
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    /* grid-row-gap: var(--row-gap); */
+    grid-column-gap: var(--column-gap);
+
+    /* test */
+    /* border: 1px solid; */
+}
+
+.grids .service__img {
+    /* 
+        sample__img--n are square in size, 
+        so whatever width I set,
+        its height and width are same
+    */
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: var(--img-width);
+    height: var(--img-height);
+    align-self: var(--img-align-vertical);
+    margin: var(--margin) 0;
+}
+
+.grids .service__content {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    /* test */
+    /* border: 1px solid; */
+}
+
+.grids .service__heading {
+    font-size: var(--font-service-heading);
+    line-height: var(--lh-service-heading);
+    font-weight: normal;
+    margin: var(--margin) 0;
+}
+
+.grids .service__description {
+    font-size: var(--font-service-description);
+    line-height: var(--lh-service-description);
+}
+
+.grids .service__link {
+    font-size: var(--font-service-link);
+    line-height: var(--lh-service-link);
+    margin: var(--margin) 0;
+}
+
+/* hovering state */
+.grids .service:hover {
+    background-color: var(--bg-on-hover);
+    border: 1px solid #262626;
+}
+
+.grids .service__link:hover {
+    text-decoration: underline;
+}
+
+
+/* 1024px */
+@media (max-width: 64rem) {
+    html {
+        font-size: 50%;
+    }
+}
+
+/* 768px */
+@media (max-width: 48rem) {
+    .grids .services {
+        --column-count: 1;
+        --column-width: 100%;
+    }
+}
