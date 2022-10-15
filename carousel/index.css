@@ -1,0 +1,68 @@
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+
+.carousel {
+    width: 60rem;
+    margin: 0 auto;
+    margin-top: 25px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: inherit;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev, .next {
+    background-color: orange;
+    border: 2px solid;
+    padding: 0px 10px;
+}
+
+.carousel__images {
+    width: 60rem; height: 30rem;
+    margin: 0 auto;
+    display: flex;
+    --position: 0;
+}
+
+.carousel__image {
+}
+
+.carousel__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel__dot {
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    background-color: orange;
+    border: 2px solid;
+    text-indent: -1.5px;
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+    border-radius: 50%;
+}
+
+.prev:disabled, .carousel__dot:disabled, .next:disabled {
+    background-color: orangered;
+}
